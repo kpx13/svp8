@@ -21,7 +21,7 @@ urlpatterns = patterns('',
     url(r'^ckeditor/', include('ckeditor.urls')),
 
     url(r'^$' , views.home_page),
-    url(r'^article/(?P<art_slug>[\w-]+)$' , views.article_page),
+    url(r'^subscribe$' , views.subscribe_page),
     url(r'^(?P<page_name>\w+)$' , views.other_page),
     
 )

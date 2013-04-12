@@ -23,6 +23,25 @@
             {% block content %}
 
             {% endblock %}
+            
+            <hr />
+            <div class="row">
+                <form action='/subscribe' method='POST'>
+                    <div class="offset3 span3">
+                        
+                        <p>Если Вы хотите быть в курсе, пишите на <a href='mailto:info@svp8.ru' target='blank'>info@svp8.ru</a> или оставьте нам свой адрес и мы обязательно оповестим Вас.</p>
+                    </div>
+                    <div class='span3'>
+                        <div class='well'>
+                            <input type='text' style='width: 165px' name='email' value='' placeholder='ваш емейл' />
+                            <button type='submit' class='btn btn-primary'>Отправить</button>
+                            <input type='hidden' name='from' value='{{ request_url }}' />
+                            {% csrf_token %}
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
         </div>
     </body>
 </html>  

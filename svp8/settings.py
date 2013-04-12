@@ -40,7 +40,7 @@ TIME_ZONE = 'Asia/Dubai'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'Ru-ru'
 
-SITE_ID = 1
+SITE_ID = 3
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -142,7 +142,7 @@ INSTALLED_APPS = (
     'taggit',
     
     'pages',
-    'articles',
+    'subscribe',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -176,6 +176,14 @@ LOGGING = {
 
 CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'uploads')
 CKEDITOR_MEDIA_PREFIX = '/media/ckeditor/'
+
+SEND_ALERT_EMAIL = ['annkpx@gmail.com']
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'noreply@webgenesis.ru'
+EMAIL_HOST_PASSWORD = 'noreply13'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 try:
     from dev import *
