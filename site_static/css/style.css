@@ -1,0 +1,15 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster|Comfortaa|Didact+Gothic&subset=latin,cyrillic);
+* {font-family: 'Comfortaa', cursive !important;} 
+h1, h2, h3, h4, h5, h6 {font-family: 'Lobster', cursive !important; color: #707070;}
+ 
+.tag-cloud{text-align:center;}
+.tag-cloud li{display:inline;margin-right:5px;line-height:22px}
+.tag-cloud li a{color:#727a90}
+.tag-cloud li a:hover{color: #ffff00}
+.tag-cloud li .tag-size-1{font-size:16px}
+.tag-cloud li .tag-size-2{font-size:20px}
+.tag-cloud li .tag-size-3{font-size:22px}
+.tag-cloud li .tag-size-4{font-size:24px}
+.tag-cloud li .tag-size-5{font-size:26px}
+
+.well a {color:  #55f}

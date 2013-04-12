@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-ru" lang="ru-ru">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>{% block title %}SVP8{% endblock %}</title>
+        
+        <link href="/static/css/bootstrap.css" type="text/css" rel="stylesheet">
+<!--         <link href="/static/css/style.css" type="text/css" rel="stylesheet"> -->
+        <script src="/static/js/jquery.js"></script>
+        <script src="/static/bootstrap/js/bootstrap.js"></script>
+        {% block extended_head %}
+        {% endblock %}
+
+    </head>
+        
+    <body>
+        
+        <div class="container">
+            <div class="row">
+                &nbsp;
+            </div>
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </body>
+</html>  

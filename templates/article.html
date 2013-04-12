@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="span12">
+        <h3>{{ a.name }}</h3>
+        {{ a.text|safe }}
+    </div>
+
+</div>
+{% endblock %}
