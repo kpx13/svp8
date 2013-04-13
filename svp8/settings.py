@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 from os.path import abspath, join, dirname
 
@@ -174,9 +175,32 @@ LOGGING = {
     }
 }
 
+FILE_UPLOAD_MAX_MEMORY_SIZE = 7864320
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar':
+           [
+                ['Source', '-', 'Templates'],
+                ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord'],
+                ['Undo', 'Redo', ],
+                ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+                ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+                ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar'],
+                ['RemoveFormat', 'Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+                ['Styles','Format','FontSize', 'TextColor','BGColor'],
+                ['Link','Unlink',],
+                ['Maximize', 'ShowBlocks'],
+            ],
+        'width': 1056,
+        'height': 200,
+        'toolbarCanCollapse': True,
+        'resize_enabled': True
+    }
+}
+
 CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'uploads')
 CKEDITOR_MEDIA_PREFIX = '/media/ckeditor/'
-
+GRAPPELLI_ADMIN_TITLE = u'SVP8.ru - Спасаем мир, блеать!'
 SEND_ALERT_EMAIL = ['annkpx@gmail.com']
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'noreply@webgenesis.ru'
