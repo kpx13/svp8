@@ -27,6 +27,10 @@ def home_page(request):
     c['request_url'] = 'home'
     return render_to_response('home.html', c, context_instance=RequestContext(request))
 
+def go_page(request):
+    c = get_common_context(request)
+    return render_to_response('go.html', c, context_instance=RequestContext(request))
+
 def other_page(request, page_name):
     c = get_common_context(request)
     try:
