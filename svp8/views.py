@@ -31,6 +31,10 @@ def go_page(request):
     c = get_common_context(request)
     return render_to_response('go.html', c, context_instance=RequestContext(request))
 
+def play_page(request):
+    c = get_common_context(request)
+    return render_to_response('play.html', c, context_instance=RequestContext(request))
+
 def other_page(request, page_name):
     c = get_common_context(request)
     try:

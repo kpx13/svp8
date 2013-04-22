@@ -22,6 +22,7 @@ urlpatterns = patterns('',
 
     url(r'^$' , views.home_page),
     url(r'^go/$' , views.go_page),
+    url(r'^play/$' , views.play_page),
     url(r'^(?P<page_name>[\w-]+)/$' , views.other_page),
     
 )
