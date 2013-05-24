@@ -5,8 +5,9 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>{% block title %}SVP8{% endblock %}</title>
         
-        <link href="/static/css/bootstrap.css" type="text/css" rel="stylesheet">
-        <link href="/static/css/style.css" type="text/css" rel="stylesheet">
+<!--         <link href="/static/css/bootstrap.css" type="text/css" rel="stylesheet"> -->
+        <link href="/static/css/bootstrap_1.css" type="text/css" rel="stylesheet">
+<!--         <link href="/static/css/style.css" type="text/css" rel="stylesheet"> -->
         <script src="/static/js/jquery.js"></script>
         <script src="/static/bootstrap/js/bootstrap.js"></script>
         {% block extended_head %}
@@ -15,50 +16,60 @@
     </head>
         
     <body>
-        <div id='header'>
-            <div class="container">
-                <div class="row">
-                    &nbsp;
+        {% if request.user.is_authenticated %}
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand">СВП</a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li class="active">
+                                <a href="/">Класс</a>
+                            </li>
+                            <li>
+                                <a href="/forum/" target='_blank'>Форум</a>
+                            </li>
+                            <li>
+                                <a href="/profile/">Профиль</a>
+                            </li>
+                            
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown">Информация<b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/info/logout/">О работе в группе</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <ul class="nav pull-right">
+                            
+                            <li class="divider-vertical"></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown">Вы вошли как {{ request.user.first_name }} {{ request.user.last_name }}<b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/accounts/logout/">Выйти</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.nav-collapse -->
                 </div>
-                {% block header_content %}
-                    <div class="row">
-                        <div class="span9">
-                            <h1>Системно-Векторная</h1>
-                            <h3>ПСИХОЛОГИЯ</h3>
-                        </div>
-                        <div class='span3'>
-                                    {% include 'subscribe.html' %}
-                        </div>
-                    </div>  
-                {% endblock %}
             </div>
+            <!-- /navbar-inner -->
         </div>
-        <div class="container">
-            <div class="row">
-                    &nbsp;
-                </div>
+        <!-- /navbar -->
+        {% endif %}
+       <div class="container">
             {% block content %}
             {% endblock %}
-            
-            <hr />
-            <div class="row">
-                        {% if messages %}
-                            <div class='span12'>
-                            {% for message in messages %}
-                                <div class='message-wrapper'>
-                                <div class="alert alert-{{ message.tags }}">
-                                    {{ message|safe }}
-                                </div>
-                                </div>
-                            {% endfor %}
-                            </div>
-                        {% endif %}
-                
-                    <div class="span12">
-                        <p>Если Вы хотите быть в курсе, пишите на <a href='mailto:info@svp8.ru' target='blank'>info@svp8.ru</a> или оставьте нам свой адрес и мы обязательно оповестим Вас.</p>
-                    </div>
-                    
-            </div>
-        </div>
+       </div> <!-- /container -->
     </body>
 </html>  

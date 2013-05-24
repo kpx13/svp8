@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 from os.path import abspath, join, dirname
+from svp8.wsgi import PROJECT_ROOT
 
 DEBUG = False
 TEMPLATE_DEBUG = False
@@ -102,17 +103,23 @@ SECRET_KEY = 'g!nh@9(-vt+ac_)zrf+1vks(6dj+sqv96eb8=fq^xg3c*rr=@)'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
+
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'pagination.middleware.PaginationMiddleware',
+    'django_authopenid.middleware.OpenIDMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
+    'django.middleware.transaction.TransactionMiddleware',
+    'djangobb_forum.middleware.LastLoginMiddleware',
+    'djangobb_forum.middleware.UsersOnline',
 )
 
 ROOT_URLCONF = 'svp8.urls'
@@ -141,6 +148,15 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'ckeditor',
     'taggit',
+    'polymorphic',
+    'chatrooms',
+    
+    'django_authopenid',
+    'djangobb_forum',
+    'haystack',
+    'messages',
+    'pagination',
+    'registration',
     
     'pages',
     'subscribe',
@@ -208,6 +224,35 @@ EMAIL_HOST_PASSWORD = 'noreply13'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+FORCE_SCRIPT_NAME = ''
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+    'django_authopenid.context_processors.authopenid',
+    'messages.context_processors.inbox',
+    'djangobb_forum.context_processors.forum_settings',
+)
+
+# Haystack settings
+HAYSTACK_SITECONF = 'search_sites'
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+HAYSTACK_WHOOSH_PATH = os.path.join(PROJECT_ROOT, 'djangobb_index')
+
+# Account settings
+ACCOUNT_ACTIVATION_DAYS = 10
+LOGIN_REDIRECT_URL = '/forum/'
+LOGIN_URL = '/accounts/login/'
+
+#Cache settings
+CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 
 try:
     from dev import *

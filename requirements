@@ -8,3 +8,9 @@ Django-Keyedcache
 django-livesettings
 django-taggit
 pytils
+django-chatrooms
+postmarkup
+django-haystack
+whoosh
+django-pagination
+django-messages

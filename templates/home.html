@@ -1,120 +1,67 @@
 {% extends 'base.html' %}
 
+{% block title %}{{ title }}{% endblock %}
+
+{% block extended_head %}
+    <script type="text/javascript" src="/static/js/swfobject.js"></script>
+
+        <script type="text/javascript" charset="utf-8"
+            src="{{STATIC_URL}}js/jquery_csrf_ajax.js">
+        </script>
+    <!-- <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}/css/room_page.css"> -->
+    <script type="text/javascript">
+        getContext = function(){
+            return {
+                "username": "{{ user.username }}",
+                "room_id": {{ room.id }},
+            }
+        }
+    </script>
+    <script type="text/javascript" src="{{ STATIC_URL }}/js/room.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/css/room.css">
+{% endblock %}
 
 {% block content %}
-    <div class="row">
-        <div class="span12">
+
+    <div class='row'> &nbsp;
+    </div>
+    <div class='row'>
+        <div class='span4'>
+            <div id="audioplayer602"></div><script type="text/javascript">var flashvars = {"comment":"Системно-Векторная Психология. 1 уровень.","st":"/static/css/audio164-590.txt","file":"http://listen.svp8.ru:8090/burlan"};var params = {bgcolor:"#ffffff",  allowScriptAccess:"always",id:"audioplayer602"}; new swfobject.embedSWF("/static/uppod.swf", "audioplayer602", "300", "90", "9.0.115.0", false, flashvars, params);</script>
             
-                <div class="tabbable tabs-right">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#tab1" data-toggle="tab">Что такое</a></li>
-                        <li><a href="#tab2" data-toggle="tab">Где можно использовать</a></li>
-                        <li><a href="#tab3" data-toggle="tab">История</a></li>
-                        <li><a href="#tab4" data-toggle="tab">Юрий Бурлан</a></li>
-                        <li><a href="#tab5" data-toggle="tab">Этот сайт</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tab1">
-                            <p>Что такое</p>
-                        </div>
-                        <div class="tab-pane" id="tab2">
-                            <p>Где можно использовать</p>
-                        </div>
-                        <div class="tab-pane" id="tab3">
-                            <p>История</p>
-                        </div>
-                        <div class="tab-pane" id="tab4">
-                            <p>Юрий Бурлан</p>
-                        </div>
-                        <div class="tab-pane" id="tab5">
-                            <p>Этот сайт</p>
+            
+        </div>
+        
+        <div class='span8'>
+            <div class='well'>
+                Здесь всякая нужная инфа<br />
+                <a href='/forum' target='_blank'>Форум</a>
+            </div>
+        </div>
+    
+    </div>
+    
+    <div class='row'>
+             <div id="chatContent">
+                <div class='span10'>
+                    <div id="chat">
+                        <div id="chatText"></div>
+                        <div id="chatInput">
+                            <input id="chatSendText" name="chatSendText" type="text">
+                            <input id="chatSendButton" type="button" class='btn btn-primary' value="Отправить">
                         </div>
                     </div>
-                </div>  
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="span12">
-            <ul class="thumbnails">
-                <li>
-                    <a href="#area_content_1" class="thumbnail" id = 'area_1'>
-                        Решение проблем в отношениях
-                    </a>
-                </li>
-                <li>
-                    <a href="#area_content_2" class="thumbnail" id = 'area_2'>
-                        Воспитание детей
-                    </a>
-                </li>
-                <li>
-                    <a href="#area_content_3" class="thumbnail" id = 'area_3'>
-                        Поиск себя
-                    </a>
-                </li>
-                <li>
-                    <a href="#area_content_4" class="thumbnail" id = 'area_4'>
-                        Избавление от зависимостей
-                    </a>
-                </li>
-                <li>
-                    <a href="#area_content_5" class="thumbnail" id = 'area_5'>
-                        Лечение болезней
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="span12">
-            <div id='area_content'>
+                </div>
+                
+                <div class='span2'>
+                    <div id="connectedUsers">
+                        <p id="connectedUsersTitle">С нами сейчас:</p>
+                        <ol id="connectedUsersList">
+                        </ol>
+                    </div>
+                </div>
             </div>
-            <a href='/go/' class='btn btn-primary'>Начать знакомиться с Системно-Векторной Психологией</a>
-        </div>
     </div>
+        
     
-    <div id = 'area_content_1' style='display: none'>
-        <h2>Решение проблем в отношениях</h2>
-        <p>Решение проблем в отношениях</p>
-    </div>
-    
-    <div id = 'area_content_2' style='display: none'>
-        <p>Воспитание детей</p>
-    </div>
-    
-    <div id = 'area_content_3' style='display: none'>
-        <p>Поиск себя</p>
-    </div>
-    
-    
-    <div id = 'area_content_4' style='display: none'>
-        <p>Избавление от зависимостей</p>
-    </div>
-    
-    <div id = 'area_content_5' style='display: none'>
-        <p>Лечение болезней</p>
-    </div>
-    
-    <script>
-        $('#area_1').click(function (){ $('#area_content').html($('#area_content_1').html()); });
-        $('#area_2').click(function (){ $('#area_content').html($('#area_content_2').html()); });
-        $('#area_3').click(function (){ $('#area_content').html($('#area_content_3').html()); });
-        $('#area_4').click(function (){ $('#area_content').html($('#area_content_4').html()); });
-        $('#area_5').click(function (){ $('#area_content').html($('#area_content_5').html()); });
-    </script>
-    
-    <!--
-    <div class="row">
-        <div class="span8">
-            <div class='well'>
-                Блок с переключающейся статьей
-            </div>
-        </div>
-        <div class="span4">
-            <div class='well'>
-                Блок меню
-            </div>
-        </div>
-    </div>-->
 {% endblock %}
