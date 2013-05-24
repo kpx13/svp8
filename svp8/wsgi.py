@@ -3,7 +3,7 @@ from os.path import dirname
 import sys
 
 ROOT = dirname(dirname(dirname(os.path.abspath(__file__))))
-PROJECT_ROOT = ROOT + "/svp8/"
+PROJECT_ROOT = ROOT + "/svp8"
 sys.path.append(PROJECT_ROOT)
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "svp8.settings")
