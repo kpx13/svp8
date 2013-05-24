@@ -25,22 +25,24 @@
                     <a class="brand">СВП</a>
                     <div class="nav-collapse">
                         <ul class="nav">
-                            <li class="active">
+                            <li {% if 'home' in request_url %} class="active" {% endif %}>
                                 <a href="/">Класс</a>
                             </li>
                             <li>
                                 <a href="/forum/" target='_blank'>Форум</a>
                             </li>
-                            <li>
+                            <li {% if 'profile' in request_url %} class="active" {% endif %}>
                                 <a href="/profile/">Профиль</a>
                             </li>
                             
-                            <li class="dropdown">
+                            <li class="dropdown {% if 'info' in request_url %} active {% endif %}">
                                 <a class="dropdown-toggle" data-toggle="dropdown">Информация<b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="/info/logout/">О работе в группе</a>
+                                        {% for i in info_pages %}
+                                            <a href="/info/{{ i.slug }}/">{{ i.title }}</a>
+                                        {% endfor %}
                                     </li>
                                 </ul>
                             </li>
@@ -50,7 +52,7 @@
                             
                             <li class="divider-vertical"></li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown">Вы вошли как {{ request.user.first_name }} {{ request.user.last_name }}<b class="caret"></b>
+                                <a class="dropdown-toggle" data-toggle="dropdown">{{ username }} <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
@@ -68,6 +70,16 @@
         <!-- /navbar -->
         {% endif %}
        <div class="container">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class='message-wrapper'>
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message|safe }}
+                    </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            
             {% block content %}
             {% endblock %}
        </div> <!-- /container -->

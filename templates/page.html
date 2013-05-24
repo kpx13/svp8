@@ -3,5 +3,10 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-    {{ content|safe }}
+    <div class='row'>
+        <div class='span12'>
+            <h3>{{ title }}</h3>
+            {{ content|safe }} 
+        </div>
+    <div>
 {% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class='row'>
+        <div class='span6'>
+            <h3>Профиль</h3>
+            <table class='table table-bordered'>
+                <tr>
+                    <td>Юзернейм:</td>
+                    <td>{{ user.username }}</td>
+                </tr>
+                <tr>
+                    <td>Имя:</td>
+                    <td>{{ user.first_name }}</td>
+                </tr>
+                <tr>
+                    <td>Фамилия:</td>
+                    <td>{{ user.last_name }}</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>{{ user.email }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class='span6'>
+            <h3>Смена пароля</h3>
+            <form method='POST'>
+                <table class='table table-bordered'>
+                    {{ password_form.as_table }}
+                    <tr>
+                        <td></td>
+                        <td><input type='submit' class='btn btn-primary' name='change' value='Сменить' /></td>
+                    </tr>
+                </table>
+                {% csrf_token %}
+            </form>
+        </div>
+    <div>
+{% endblock %}

@@ -44,9 +44,8 @@ urlpatterns = patterns('',
     (r'^forum/', include('djangobb_forum.urls', namespace='djangobb')),
 
     url(r'^$' , views.home_page),
-    url(r'^go/$' , views.go_page),
-    url(r'^play/$' , views.play_page),
-    url(r'^(?P<page_name>[\w-]+)/$' , views.other_page),
+    url(r'^profile/$' , views.profile_page),
+    url(r'^info/(?P<page_name>[\w-]+)/$' , views.info_page),
     
 )
 
