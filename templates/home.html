@@ -1,9 +1,67 @@
 {% extends 'base.html' %}
 
+{% block title %}{{ title }}{% endblock %}
+
+{% block extended_head %}
+    <script type="text/javascript" src="/static/js/swfobject.js"></script>
+
+        <script type="text/javascript" charset="utf-8"
+            src="{{STATIC_URL}}js/jquery_csrf_ajax.js">
+        </script>
+    <!-- <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}/css/room_page.css"> -->
+    <script type="text/javascript">
+        getContext = function(){
+            return {
+                "username": "{{ user.username }}",
+                "room_id": {{ room.id }},
+            }
+        }
+    </script>
+    <script type="text/javascript" src="{{ STATIC_URL }}/js/room.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/css/room.css">
+{% endblock %}
+
 {% block content %}
-<div class="row">
-    <div class="offset3 span6">
-        <h2>Сайт находится в разработке.</h2>
+
+    <div class='row'> &nbsp;
     </div>
-</div>
+    <div class='row'>
+        <div class='span4'>
+            <div id="audioplayer602"></div><script type="text/javascript">var flashvars = {"comment":"Системно-Векторная Психология. 1 уровень.","st":"/static/css/audio164-590.txt","file":"http://listen.svp8.ru:8090/burlan"};var params = {bgcolor:"#ffffff",  allowScriptAccess:"always",id:"audioplayer602"}; new swfobject.embedSWF("/static/uppod.swf", "audioplayer602", "300", "90", "9.0.115.0", false, flashvars, params);</script>
+            
+            
+        </div>
+        
+        <div class='span8'>
+            <div class='well'>
+                Здесь всякая нужная инфа<br />
+                <a href='/forum' target='_blank'>Форум</a>
+            </div>
+        </div>
+    
+    </div>
+    
+    <div class='row'>
+             <div id="chatContent">
+                <div class='span10'>
+                    <div id="chat">
+                        <div id="chatText"></div>
+                        <div id="chatInput">
+                            <input id="chatSendText" name="chatSendText" type="text">
+                            <input id="chatSendButton" type="button" class='btn btn-primary' value="Отправить">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class='span2'>
+                    <div id="connectedUsers">
+                        <p id="connectedUsersTitle">С нами сейчас:</p>
+                        <ol id="connectedUsersList">
+                        </ol>
+                    </div>
+                </div>
+            </div>
+    </div>
+        
+    
 {% endblock %}

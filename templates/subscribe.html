@@ -1,0 +1,7 @@
+<form method='POST'>
+    <input type='text' style='width: 165px' name='name' value='' placeholder='Ваше имя' />
+    <input type='text' style='width: 165px' name='email' value='' placeholder='Ваш емейл' />
+    <button type='submit' class='btn btn-primary'>Отправить</button>
+    <input type='hidden' name='from' value='{{ request_url }}' />
+    {% csrf_token %}
+</form>

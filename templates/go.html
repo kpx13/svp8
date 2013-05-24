@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block header_content %}
+<div class="row">
+    <div class="span9">
+        <h1>Системно-Векторная</h1>
+        <h3>ПСИХОЛОГИЯ</h3>
+    </div>
+    <div class='span3'>
+                                {% include 'subscribe.html' %}
+                    </div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+    <div class="row">
+        <div class="span12">
+        
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <ul class="nav">
+                        <li><a href="#">Основные понятия</a></li>
+                        <li class="active"><a href="#">Вектора</a></li>
+                        <li><a href="#">Смешения</a></li>
+                        <li><a href="#">Отношения</a></li>
+                        <li><a href="#">Что дальше? </a></li>
+                    </ul>
+                </div>
+            </div>
+
+                <div class="tabbable tabs-right">
+                    <ul class="nav nav-tabs">
+                        <li><a href="#tab1" data-toggle="tab">Кожный</a></li>
+                        <li class="active"><a href="#tab2" data-toggle="tab">Анальный</a></li>
+                        <li><a href="#tab3" data-toggle="tab">Мышечный</a></li>
+                        <li><a href="#tab4" data-toggle="tab">Уретральный</a></li>
+                        <li><a href="#tab5" data-toggle="tab">Зрение</a></li>
+                        <li><a href="#tab6" data-toggle="tab">Звук</a></li>
+                        <li><a href="#tab7" data-toggle="tab">Обоняние</a></li>
+                        <li><a href="#tab8" data-toggle="tab">Оральность</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane" id="tab1">
+                            <p>Кожный</p>
+                        </div>
+                        <div class="tab-pane active" id="tab2">
+                            <p>Анальный</p>
+                        </div>
+                        <div class="tab-pane" id="tab3">
+                            <p>Мышечный</p>
+                        </div>
+                        <div class="tab-pane" id="tab4">
+                            <p>Уретральный</p>
+                        </div>
+                        <div class="tab-pane" id="tab5">
+                            <p>Зрение</p>
+                        </div>
+                        <div class="tab-pane" id="tab6">
+                            <p>Звук</p>
+                        </div>
+                        <div class="tab-pane" id="tab7">
+                            <p>Обоняние</p>
+                        </div>
+                        <div class="tab-pane" id="tab8">
+                            <p>Оральность</p>
+                        </div>
+                    </div>
+                </div>  
+                <ul class="pager">
+                    <li class="previous disabled">
+                        <a href="#">&larr; Назад</a>
+                    </li>
+                    <li class="next">
+                        <a href="#">Вперед &rarr;</a>
+                    </li>
+                </ul>
+        </div>
+    </div>
+{% endblock %}
