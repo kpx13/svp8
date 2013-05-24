@@ -28,6 +28,7 @@ def home_page(request):
     c = get_common_context(request)
     c['request_url'] = 'home'
     c['room'] = Room.objects.all()[0]
+    c['content'] = Page.get_page_by_slug('home')['content']
     return render_to_response('home.html', c, context_instance=RequestContext(request))
 
 @login_required

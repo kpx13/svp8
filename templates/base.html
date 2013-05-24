@@ -41,7 +41,9 @@
                                 <ul class="dropdown-menu">
                                     <li>
                                         {% for i in info_pages %}
+                                            {% if i.slug != 'home' %}
                                             <a href="/info/{{ i.slug }}/">{{ i.title }}</a>
+                                            {% endif %}
                                         {% endfor %}
                                     </li>
                                 </ul>

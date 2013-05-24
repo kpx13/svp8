@@ -34,8 +34,7 @@
         
         <div class='span8'>
             <div class='well'>
-                Здесь всякая нужная инфа<br />
-                <a href='/forum' target='_blank'>Форум</a>
+                {{ content|safe }}
             </div>
         </div>
     
@@ -55,7 +54,7 @@
             
             <div class='span2'>
                 <div id="connectedUsers">
-                    <p id="connectedUsersTitle">С нами сейчас:</p>
+                    <p id="connectedUsersTitle">В сети:</p>
                     <ol id="connectedUsersList">
                     </ol>
                 </div>
