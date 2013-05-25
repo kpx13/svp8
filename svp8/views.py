@@ -12,7 +12,7 @@ from django.template import RequestContext
 from pages.models import Page
 from subscribe.models import Subscribe
 from django.contrib.auth.decorators import login_required
-from chatrooms.models import Room
+from chatrooms.models import Room, Message
 
 def get_common_context(request):
     c = {}
@@ -28,6 +28,7 @@ def home_page(request):
     c = get_common_context(request)
     c['request_url'] = 'home'
     c['room'] = Room.objects.all()[0]
+    c['chat_messages'] = Message.objects.filter(room=c['room'])
     c['content'] = Page.get_page_by_slug('home')['content']
     return render_to_response('home.html', c, context_instance=RequestContext(request))
 

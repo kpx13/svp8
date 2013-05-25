@@ -44,7 +44,21 @@
         <div id="chatContent">
             <div class='span10'>
                 <div id="chat">
-                    <div id="chatText"></div>
+                    <div id="chatText">
+                    {% for m in chat_messages %}
+                        <div class="chatMessage">
+                            <div class="messageDate">
+                                {{ m.date.time }}
+                            </div> 
+                            <div class="messageUsername">
+                                {{ m.username }}
+                            </div>
+                            <div class="messageContent">
+                                {{ m.content }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
                     <div id="chatInput">
                         <input id="chatSendText" name="chatSendText" type="text">
                         <input id="chatSendButton" type="button" class='btn btn-primary' value="Отправить">
