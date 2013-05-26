@@ -45,7 +45,7 @@
             <div class='span10'>
                 <div id="chat">
                     <div id="chatText">
-                    {% for m in chat_messages %}
+                    {% for m in chat_messages_ %}
                         <div class="chatMessage">
                             <div class="messageDate">
                                 {{ m.date.time }}
@@ -60,8 +60,8 @@
                     {% endfor %}
                     </div>
                     <div id="chatInput">
-                        <input id="chatSendText" name="chatSendText" type="text">
-                        <input id="chatSendButton" type="button" class='btn btn-primary' value="Отправить">
+                        <input id="chatSendText" name="chatSendText" type="text" placeholder='Чат временно не работает' readonly=readonly>
+<!--                         <input id="chatSendButton" type="button" class='btn btn-primary' value="Отправить"> -->
                     </div>
                 </div>
             </div>
